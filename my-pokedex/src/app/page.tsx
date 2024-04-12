@@ -11,9 +11,6 @@ type PokemonList = {
   previous: string;
   results: Pokemon[];
 };
-
-type PokemonDetail = {};
-
 async function fetchPokemon(): Promise<PokemonList> {
   const response = await fetch(
     "https://pokeapi.co/api/v2/pokemon/?limit=60&offset=0"
@@ -29,11 +26,11 @@ export default async function Home() {
       <div className=" grid grid-cols-5 gap-2">
         {pokedex.results.map((pokemon) => (
           <Link href={`/detail/${pokemon.name}`} key={pokemon.name}>
-            <div key={pokemon.name}>
+            <div className=" " key={pokemon.name}>
               <img
                 width={250}
                 height={250}
-                className="ml-4 w-64 h-64 rounded-md"
+                className="ml-4 w-64 h-64 rounded-md mix-blend-*"
                 src={
                   "https://img.pokemondb.net/artwork/" + pokemon.name + ".jpg"
                 }
